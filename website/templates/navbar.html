@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/sample.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+          <div class="logo"><a href="" style="text-decoration:none;"><i class="fa fa-light fa-cart-shopping fa-fade" style="color: #22b5c9;">e-shoppy</i></a></div>
+              <ul class="links" >
+                  <li><a href="{% url 'home' %}"><i class="fa-solid fa-house" ></i>home</a></li>
+                  <li><a href="{% url 'collections' %}"><i class="fa fa-light fa-shirt"></i>catagories</a></li>
+                 <li><a href="{% url 'favouritepage' %}"><i class="fa fa-thin fa-heart" style="color: #f00000;"></i>favourites</a></li>
+                  <li><a href="{% url 'cart' %}"><i class="fa fa-regular fa-cart-plus"></i>cart</a></li>
+                  {% if request.user.is_authenticated %}
+                  <li><a href=""><i class="fa fa-thin fa-user"></i>{{request.user}}</a></li>
+                  <li><a href="LogoutPage"><i class="fa fa-thin fa-right-from-bracket"></i>logout</a></li>
+                  {% else %}
+                  <li><a href="{% url 'LoginPage' %}"><i class="fa fa-thin fa-right-to-bracket"></i>login</a></li>
+                  {% endif %}
+                  
+              </ul>
+              <div class="toggle-btn">
+                  <i class="fa-solid fa-bars" style="color:white" ></i>
+              </div>
+        </div>
+        <div class="dropdownmenu">
+            <li><a href="{% url 'home' %}"><i class="fa-solid fa-house" ></i>home</a></li>
+                  <li><a href="{% url 'collections' %}"><i class="fa fa-light fa-shirt" ></i>catagories</a></li>
+                 <li><a href="{% url 'favouritepage' %}"><i class="fa fa-thin fa-heart" style="color: #f00000;"></i>favourites</a></li>
+                  <li><a href="{% url 'cart' %}"><i class="fa-regular fa-cart-plus"></i>cart</a></li>
+                  {% if request.user.is_authenticated %}
+                  <li><a href=""><i class="fa fa-thin fa-user"></i>{{request.user}}</a></li>
+                  <li><a href="LogoutPage"><i class="fa fa-thin fa-right-from-bracket"></i>logout</a></li>
+                  {% else %}
+                  <li><a href="{% url 'LoginPage' %}"><i class="fa fa-thin fa-right-to-bracket"></i>login</a></li>
+                  {% endif %}
+        </div>
+      </header>
+  <script>
+      const togglebtn=document.querySelector('.toggle-btn')
+      const togglebtnicon=document.querySelector('.toggle-btn i')
+      const  dropdownmenu=document.querySelector('.dropdownmenu')
+      togglebtn.onclick=function () {
+          dropdownmenu.classList.toggle('open')
+          const isopen=dropdownmenu.classList.contains('open')
+          togglebtnicon.classList=isopen
+          ? 'fa-solid fa-xmark'
+          : 'fa-solid fa-bars'        
+      }
+  </script>
+</body>
+</html>

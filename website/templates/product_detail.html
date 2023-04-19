@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<section class="bg-light py-4 my-5">
+    <div class="container">
+    <a href="{% url 'collections' product.catagories.name %}"  class="button go-back" title="go back to catagories">⬅go back</a> 
+         <br><br>
+        <div class="row">
+            <div class="col-12">
+                <h4 class="mb-3" style="">{{product}} details</h4>
+                <hr style="border-color:#b8bfc2;">
+            </div>  
+           <div class="col-4 my-2">
+            {% if product.trending %}
+            <img src="{% static 'images/trending product.jpeg' %}" class="deal-of-the-day" alt="">
+            {% endif %}
+            <img src=" {{product.pro_image.url}} " class="card-image-top"alt="{{product}}" >
+           </div>
+           <div class="col-8 my-3 description-box" style="">
+            <h5 class="text-success"  style="">{{product}}</h5>
+            <p class="vendor" style="">{{product.vendor}}</p>
+            <p>{{product.description}}</p>
+            <h6 class="my-2 old-price">current price:RS <s style="">{{product.old_price | stringformat:'d'}}</s></h6>
+            <h5 class="my-2 " >Offer price: RS <span class="new-price">{{product.new_price| stringformat:'d'}}</span></h5>
+            <div class="my-3">
+                {% if product.quantity > 0 %}
+                <input type="hidden" value="{{product.id}}" id="pid">
+              
+                <p>
+                    <div class="input-group" style="width:150px">
+                        <button class="input-group-text bg-success text-light" id="btnMinus"><i class="fa fa-minus"></i></button>
+                        <input type="text" name="qty" id="txtQty" value='1' class="form-control text-center">
+                        <button class="input-group-text bg-success text-light" id="btnPlus"><i class="fa fa-plus"></i></button>
+                    </div>
+                </p>
+                <button class="btn btn-primary" id="btnCart"><i class="fa fa-cart">Add to Cart</i></button>
+                {% else %}
+                <button class="btn btn-secondary"><i class="fa fa-minus">Out of Stock</i></button>
+                {% endif %}
+                <button class="btn btn-danger" id="btnFav"><i class="fa fa-heart"></i></button>
+            </div>
+           </div>
+        </div>
+    </div>
+</section>
+<script>
+    document.addEventListener("DOMContentLoaded",function(event){
+        const btnPlus=document.getElementById('btnPlus')
+        const btnMinus=document.getElementById('btnMinus')
+        const txtQty=document.getElementById('txtQty')
+        const pid=document.getElementById('pid')
+        /* const tkn=document.querySelector('[name="csrfmiddlewaretoken"]').value; */
+        const btnCart=document.getElementById('btnCart')
+        const btnFav=document.getElementById('btnFav')
+        btnPlus.addEventListener('click',function(){
+            let qty=parseInt(txtQty.value,10);
+            qty=isNaN(qty)?0:qty;
+            if (qty<10) {
+                qty++;
+                txtQty.value=qty
+            }
+        });
+        btnMinus.addEventListener('click',function(){
+            let qty=parseInt(txtQty.value,10);
+            qty=isNaN(qty)?0:qty;
+            if (qty>1) {
+                qty--;
+                txtQty.value=qty
+            }
+        });
+        btnCart.addEventListener('click',function(){
+            let qty=parseInt(txtQty.value,10);
+            qty=isNaN(qty)?0:qty;
+            if (qty>0) {
+               let postObj={
+                    'product_qty':qty,
+                    'pid':pid.value,
+                    /*token:tkn*/
+               }
+               
+               //console.log(postObj);
+               fetch("/addtocart",{
+                method: 'POST',
+                credentials: 'same-origin',
+                headers:{
+                    'Accept': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRFToken': '{{ csrf_token }}',
+                },
+                body: JSON.stringify(postObj)
+               }).then(response => {
+                return response.json();
+               }).then(data => {
+                /*console.log(data);*/
+                alert(data['status']);
+               });
+
+
+            }else{
+                alert("please enter the quantity")
+            }
+        });
+        btnFav.addEventListener('click',function(){
+               let postObj={
+                    //'product_qty':qty,
+                    'pid':pid.value,
+                    /*token:tkn*/
+               }
+               
+               console.log(postObj);
+               fetch("/fav",{
+                method: 'POST',
+                credentials: 'same-origin',
+                headers:{
+                    'Accept': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRFToken': '{{ csrf_token }}',
+                },
+                body: JSON.stringify(postObj)
+               }).then(response => {
+                return response.json();
+               }).then(data => {
+                /*console.log(data);*/
+                alert(data['status']);
+               });
+        });
+    });
+</script>
+{% endblock  %}
+
+

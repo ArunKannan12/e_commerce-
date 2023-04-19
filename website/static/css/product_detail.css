@@ -1,0 +1,60 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.go-back{
+    text-decoration:none; 
+    text-transform: capitalize;
+    font-size: 25px;
+    border: groove 2px black;
+    margin-left: 20px;
+    width: 200px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.089);
+    cursor: pointer;
+    border-radius:5px;
+    box-shadow: 3px 3px 3px black;
+}
+.mb-3{
+    text-transform:capitalize;
+}
+.description-box{
+    position: relative;left:50px;
+}
+.text-success{
+    text-transform:uppercase;
+}
+.vendor{
+    text-transform:capitalize;
+}
+.old-price{
+    color:red;font-size:17px;
+    font-style: oblique;
+    font-weight:bold;
+    padding:5px;
+}
+.new-price{
+    font-size:17px;
+    font-style: oblique;
+    background-color:green;
+    color:white;
+    padding:5px;
+    border-radius:5px;
+    width:80px;
+}
+.row .col-4,.description-box{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-bottom: 10px;
+    background-color: white;
+    
+}
+.deal-of-the-day{
+    height: 90px;
+    width: 90px;
+    float: left;
+    
+    
+}

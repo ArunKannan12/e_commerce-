@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %}
+add items to the cart
+{% endblock title %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css" integrity="sha512-SgaqKKxJDQ/tAUAAXzvxZz33rmn7leYDYfBP+YoMRSENhf3zJyx3SBASt/OfeQwBHA1nxMis7mM3EV/oYT6Fdw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+<br><br><br><br><br><br><br><br><br>
+
+<button id="back" class="bg-success">
+    <a href=" {% url 'collections' %} "><i class="fa fa-house"></i>continue shopping</a>
+</button>
+<section class="bg-light py-4 my-5">
+   
+    <div class="container">
+       
+        <div class="row">
+            
+            
+            <div class="col-12">
+                <h4 class="mb-3">Cart items</h4>
+                <hr style="border-color:black">
+            </div>
+        </div>
+        <table class="table table-bordered text-center" style="width:90%;"cellpadding="10">
+            <tr>
+                <th>image</th>
+                <th>product name</th>
+                <th>price</th>
+                <th>quantity</th>
+                <th>total price</th>
+                <th>remove</th>
+            </tr>
+            {% for i in cart %}
+                <tr>
+                    <td><img src=" {{i.product.pro_image.url}}" style="height:15%;width:30%;" alt=""></td>
+                    <td> {{i.product.name}} </td>
+                    <td> {{i.product.new_price |stringformat:'d'}} </td>
+                    <td> {{i.product_qty}} </td>
+                    <td class='amt'>{{i.get_total|stringformat:'d'}}</td>
+                    <td> <a href="{% url 'removecart' i.id %}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to remove this item from the cart?')" style="width:100px;color:white;"><i class="fa fa-trash"></i>Remove</a> </td>
+                </tr>
+                
+            {% endfor %}
+            <tr style="margin-top:20px">
+                <td></td>
+                <td></td>
+                <td colspan="2"><b>Total amount</b></td>
+                <td id='net'>0</td>
+            </tr>
+            
+        </table>
+        
+        
+    </div>
+</section>
+
+<script>
+    const nodes=document.querySelectorAll('.amt')
+const arr=Array.from(nodes);
+const res=arr.reduce((acc,curr) => {
+    return acc+=Number(curr.textContent)
+},0);
+document.getElementById('net').innerHTML="RS : "+res
+</script>
+{% endblock content %}
+
+
+
+

@@ -1,0 +1,88 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+#back{
+    height: 50px;
+    width: 200px;
+    margin-left:50px ;
+    border-radius: 10px;
+    border: none;
+
+}
+#back a{
+    text-decoration: none;
+    color: white;
+    text-transform: capitalize;
+    font-size: 18px;
+    
+}
+tr th{
+    text-transform: capitalize;
+    
+}
+/*
+#container #item1{
+    display: flex;
+    justify-content: center;
+    
+}
+#table1{
+    height: 100px;
+    width: 500px;
+    border-radius: 5px;
+    border: ridge 2px skyblue;
+    box-shadow: 3px 4px 3px black;
+}
+#table1 tr{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+tr td #checkbtn{
+    height: 30px;
+    width: 100px;
+    color: white;
+    background-color: rgb(12, 124, 12);
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    position: relative;
+    bottom: 10px;
+    cursor: pointer;
+}
+#item2 #table2{
+    height: 300px;
+    width: 700px;
+    border: ridge;
+    box-shadow: 3px 4px 3px black;
+    margin: 30px;
+    border-radius: 10px;
+}
+#container #item2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+th img{
+    height: 50px;
+    width: 50px;
+}
+#updwn .arrow{
+    height: 15px;
+    width: 15px;
+}
+#updwn .updn{
+    cursor: pointer;
+}
+#updwn .up:hover{
+    position: relative;
+    bottom: 2px;
+}
+#updwn .dwn:hover{
+    position: relative;
+    top: 2px;
+} */
+

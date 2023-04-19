@@ -1,0 +1,12 @@
+.images{
+    height: 500px;
+    width: 100%;
+}
+#carousel #carouselitem{
+    display: flex;
+    justify-content: center;
+    height: 600px;  
+}#carousel{
+    position: relative;
+    bottom: 16px;
+}
