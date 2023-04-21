@@ -37,7 +37,7 @@
             <li><a href="{% url 'home' %}"><i class="fa-solid fa-house" ></i>home</a></li>
                   <li><a href="{% url 'collections' %}"><i class="fa fa-light fa-shirt" ></i>catagories</a></li>
                  <li><a href="{% url 'favouritepage' %}"><i class="fa fa-thin fa-heart" style="color: #f00000;"></i>favourites</a></li>
-                  <li><a href="{% url 'cart' %}"><i class="fa-regular fa-cart-plus"></i>cart</a></li>
+                  <li><a href="{% url 'cart' %}"><i class="fa fa-regular fa-cart-plus"></i>cart</a></li>
                   {% if request.user.is_authenticated %}
                   <li><a href=""><i class="fa fa-thin fa-user"></i>{{request.user}}</a></li>
                   <li><a href="LogoutPage"><i class="fa fa-thin fa-right-from-bracket"></i>logout</a></li>
