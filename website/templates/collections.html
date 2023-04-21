@@ -1,21 +1,37 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+<link rel="stylesheet" href="{% static 'css/store.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<br><div id="search" class=""style="margin-top:70px;float:right;margin-right:50px;">
+    <form action="" method='GET' id="form" >
+      {% csrf_token %}
+      <input type="search"style="width:310px" name="q" id="searchbar" placeholder="search product">
+      <button type="submit" id="searchbutton"><i class="fa fa-magnifying-glass fa-fade fa-solid" style="color:#2c74f2"></i></button>
+    </form>
+  </div>
 <section class="bg-light py-4 my-5">
+    
     <div class="container">
+        
         <a href="{% url 'collections' %}" style="text-decoration:none; 
     text-transform: capitalize;
-    font-size: 25px;
-    border: groove 2px black;
+    font-size:20px;
+    border: none;
     margin-left: 20px;
-    width: 200px;
-    height: 50px;
+    width: 100px;
+    height: 30px;
     background-color: rgba(0, 0, 0, 0.089);
     cursor: pointer;
     border-radius:5px;
-    box-shadow: 3px 3px 3px black;" class="button" title="go back to catagories">⬅go back</a>
-         <br><br>
+    color: #41cfe1;
+    box-shadow: 3px 3px 3px black;" class="button" title="go back to catagories"><i class="fa fa-light fa-backward fa-fade" style="color: #41cfe1;"></i>goback</a>
+         <br><br><br><br>
+
         <div class="row">
             <div class="col-12">
                 <h4 class="mb-3" style="text-transform:capitalize;">{{catagory_name}}</h4>

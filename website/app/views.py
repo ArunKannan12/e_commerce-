@@ -82,14 +82,24 @@ def cart(request):
         return redirect('home')
     
 def collections(request):
-    catagory=Catagories.objects.filter(status=0)
+    if 'q' in request.GET:
+        q=request.GET['q']
+        search=Catagories.objects.filter(name__icontains=q)
+    else:
+        search=Catagories.objects.filter(status=0)
     context={
-        'catagory':catagory
+        # 'catagory':catagory,
+        'search':search
     }
     return render(request,'catagories.html',context)
 def collectionview(request,name):
     if(Catagories.objects.filter(name=name,status=0)):
         product=Product.objects.filter(catagories__name=name)
+        if 'q' in request.GET:
+            q=request.GET['q']
+            product=Product.objects.filter(name__icontains=q,catagories__name=name)
+        else:
+            product=Product.objects.filter(catagories__name=name)
         context={
             'product':product,
             'catagory_name':name

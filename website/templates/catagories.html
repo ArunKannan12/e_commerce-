@@ -2,18 +2,25 @@
 {% block content %}
 {% load static %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-{% comment %} <link rel="stylesheet" href="{% static 'css/store.css' %}"> {% endcomment %}
+<link rel="stylesheet" href="{% static 'css/store.css' %}">
 <br>   
 <br><br><br><br><br>
 <section class="bg-light py-4 my-5">
         <div class="container">
             <div class="row">
+                <div id="search" class=""style="margin-bottom:50px">
+                    <form action="" method='GET' id="form" >
+                      {% csrf_token %}
+                      <input type="search" name="q" id="searchbar" placeholder="search catagory">
+                      <button type="submit" id="searchbutton"><i class="fa fa-magnifying-glass fa-fade fa-solid" style="color:#2c74f2"></i></button>
+                    </form>
+                  </div>
                 <div class="col-12">
                     <h4 class="mb-3">Catagories</h4>
                     <hr style="border-color:black">
                 </div>
                 
-                {% for i in catagory %}
+                {% for i in search %}
                 <div class="col-md-4 col-lg-3">
                     <div class="card my-3">
                         <img src=" {{i.image.url}} " class="card-image-top"alt="">

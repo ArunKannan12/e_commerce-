@@ -3,57 +3,20 @@
     padding: 0;
     box-sizing: border-box;
 }
-#container #item{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 5px;
+#search{
+    float:left;
 }
-#item-1{
-    /* height: 250px; */
-    width: 350px;
-    border: groove black 1px;
-    border-radius: 5px;
-    margin: 10px;
-    background-color:rgba(0, 0, 0, 0.075);
-    box-shadow: 3px 4px 3px black;
-}
-#item-1 h1{
-    text-transform: capitalize;
-    font-family: sans-serif;
-    font-size: 30px;
-    font-weight: lighter;
-}
-#item-1 .img{
-    display: flex;
-    justify-content: center;
-}
-#item-1 .products{
-    display: flex;
-    justify-content: space-between;
-    margin: 10px;
-}
-.products button{
-   text-transform: capitalize;
-   border-radius: 5px;
-   border: ridge 2px white;
-   background-color: yellow ;
-   padding: 5px;
-   box-shadow: 3px 4px 3px black;
-}
-#item-1:hover{
-    width: 353px;
-    transition: all .1ms;
-}
-.products button:hover{
-    position: relative;
-    bottom: 1px;
-    background-color: black;
-    color: white;
-}
-#container #searchbar{
+#searchbar{
     height: 50px;
     width: 400px;
+    margin-left: 20px;
     border-radius: 10px;
-    margin-left: 50px;
+    border: solid skyblue 2px;
+}
+#searchbutton{
+    height: 50px;
+    width: 50px;
+    border: none;
+    border-radius: 10px;
+    margin-left: 10px;
 }
