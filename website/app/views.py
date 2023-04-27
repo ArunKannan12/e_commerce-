@@ -32,7 +32,7 @@ def LoginPage(request):
             user=authenticate(request,username=username,password=password)
             if user is not None:
                 login(request,user)
-                messages.success(request,"login successfull")
+                messages.success(request,"login successfull"+ ' '+str(request.user).capitalize())
                 return redirect('home')
             else:
                 messages.info(request,"Please check the username and password")

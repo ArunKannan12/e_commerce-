@@ -1,22 +1,70 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-#search{
-    float:left;
+
+#search {
+    float: left;
 }
-#searchbar{
+
+#searchbar {
     height: 50px;
     width: 400px;
     margin-left: 20px;
     border-radius: 10px;
     border: solid skyblue 2px;
 }
-#searchbutton{
+
+#searchbutton {
     height: 50px;
     width: 50px;
     border: none;
     border-radius: 10px;
     margin-left: 10px;
 }
+
+@media(max-width:768px) {
+
+    .card img {
+        width: 80vw;
+    }
+
+    .my-3 img {
+        width: 70vw;
+    }
+
+    .container {
+        position: relative;
+        bottom: 280px;
+    }
+
+    .col-lg-3 {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+
+    }
+}
+    @media (max-width:365px) {
+        .card img {
+            width: 90vw;
+
+        }
+
+        .container {
+            position: relative;
+            bottom: 250px;
+        }
+
+        .my-3 img {
+            width: 70vw;
+        }
+
+        .col-lg-3 {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+    }

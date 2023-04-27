@@ -32,6 +32,26 @@
     height: 100%;
    
 } */
-#slider{
+/* #slider{
     margin-top: 220px;
+} */
+@media(max-width:768px) {
+
+    .card img {
+        width: 80vw;
+    }
+    .container{
+        position: relative;
+        bottom: 280px;
+     }
+}
+@media (max-width:365px){
+    .card img{
+        width: 90vw;
+        
+    }
+    .container{
+       position: relative;
+       bottom: 250px;
+    }
 }

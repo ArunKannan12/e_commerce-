@@ -1,10 +1,11 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-.go-back{
-    text-decoration:none; 
+
+.go-back {
+    text-decoration: none;
     text-transform: capitalize;
     font-size: 25px;
     border: groove 2px black;
@@ -13,48 +14,80 @@
     height: 50px;
     background-color: rgba(0, 0, 0, 0.089);
     cursor: pointer;
-    border-radius:5px;
+    border-radius: 5px;
     box-shadow: 3px 3px 3px black;
 }
-.mb-3{
-    text-transform:capitalize;
+
+.mb-3 {
+    text-transform: capitalize;
 }
-.description-box{
-    position: relative;left:50px;
+
+.description-box {
+    position: relative;
+    left: 50px;
 }
-.text-success{
-    text-transform:uppercase;
+
+.text-success {
+    text-transform: uppercase;
 }
-.vendor{
-    text-transform:capitalize;
+
+.vendor {
+    text-transform: capitalize;
 }
-.old-price{
-    color:red;font-size:17px;
+
+.old-price {
+    color: red;
+    font-size: 17px;
     font-style: oblique;
-    font-weight:bold;
-    padding:5px;
+    font-weight: bold;
+    padding: 5px;
 }
-.new-price{
-    font-size:17px;
+
+.new-price {
+    font-size: 17px;
     font-style: oblique;
-    background-color:green;
-    color:white;
-    padding:5px;
-    border-radius:5px;
-    width:80px;
+    background-color: green;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    width: 80px;
 }
-.row .col-4,.description-box{
+
+.row .col-4,
+.description-box {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-direction: column;
     margin-bottom: 10px;
     background-color: white;
-    
+
 }
-.deal-of-the-day{
+
+.deal-of-the-day {
     height: 90px;
     width: 90px;
     float: left;
-    
-    
+
+
+}
+
+@media(max-width:768px) {
+    .description-box .description {
+        width: 160px;
+        font-size: 15px;
+    }
+    .description-box h5,.old-price{
+        font-size: 15px;
+    }
+
+}
+
+@media (max-width:365px) {
+    .description-box .description {
+        width: 160px;
+        font-size: 15px;
+    }
+    .description-box h5,.old-price{
+        font-size: 15px;
+    }
 }

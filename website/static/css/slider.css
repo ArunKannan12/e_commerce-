@@ -5,8 +5,30 @@
 #carousel #carouselitem{
     display: flex;
     justify-content: center;
-    height: 600px;  
-}#carousel{
+    height: 600px; 
+} 
+@media(max-width:768px) {
+
+    .carousel-item img {
+        width: 80vw;
+        height: 300px;
+    }
+    .carousel{
+        height: 300px;
+    }
+}
+@media (max-width:365px){
+    .carousel-item img{
+        width: 90vw;
+        margin-top: 20px;
+        
+    }
+    .carousel{
+        height: 300px;
+    }
+}
+
+/* }#carousel{
     position: relative;
     bottom: 16px;
-}
+} */

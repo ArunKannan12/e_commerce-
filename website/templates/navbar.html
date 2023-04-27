@@ -19,12 +19,14 @@
               <ul class="links" >
                   <li><a href="{% url 'home' %}"><i class="fa-solid fa-house" ></i>home</a></li>
                   <li><a href="{% url 'collections' %}"><i class="fa fa-light fa-shirt"></i>catagories</a></li>
-                 <li><a href="{% url 'favouritepage' %}"><i class="fa fa-thin fa-heart" style="color: #f00000;"></i>favourites</a></li>
-                  <li><a href="{% url 'cart' %}"><i class="fa fa-regular fa-cart-plus"></i>cart</a></li>
-                  {% if request.user.is_authenticated %}
+                {% if request.user.is_authenticated %}
+                <li><a href="{% url 'favouritepage' %}" ><i class="fa fa-thin fa-heart" style="color: #f00000;"></i>favourites</a></li>
+                <li><a href="{% url 'cart' %}" ><i class="fa fa-regular fa-cart-plus"></i>cart</a></li>
                   <li><a href=""><i class="fa fa-thin fa-user"></i>{{request.user}}</a></li>
                   <li><a href="LogoutPage"><i class="fa fa-thin fa-right-from-bracket"></i>logout</a></li>
                   {% else %}
+                  <li><a href="{% url 'favouritepage' %}" onclick="myfunction()"><i class="fa fa-thin fa-heart" style="color: #f00000;"></i>favourites</a></li>
+                  <li><a href="{% url 'cart' %}"  onclick="myFunction()"><i class="fa fa-regular fa-cart-plus"></i>cart</a></li>
                   <li><a href="{% url 'LoginPage' %}"><i class="fa fa-thin fa-right-to-bracket"></i>login</a></li>
                   {% endif %}
                   
@@ -35,15 +37,17 @@
         </div>
         <div class="dropdownmenu">
             <li><a href="{% url 'home' %}"><i class="fa-solid fa-house" ></i>home</a></li>
-                  <li><a href="{% url 'collections' %}"><i class="fa fa-light fa-shirt" ></i>catagories</a></li>
-                 <li><a href="{% url 'favouritepage' %}"><i class="fa fa-thin fa-heart" style="color: #f00000;"></i>favourites</a></li>
-                  <li><a href="{% url 'cart' %}"><i class="fa fa-regular fa-cart-plus"></i>cart</a></li>
-                  {% if request.user.is_authenticated %}
-                  <li><a href=""><i class="fa fa-thin fa-user"></i>{{request.user}}</a></li>
-                  <li><a href="LogoutPage"><i class="fa fa-thin fa-right-from-bracket"></i>logout</a></li>
-                  {% else %}
-                  <li><a href="{% url 'LoginPage' %}"><i class="fa fa-thin fa-right-to-bracket"></i>login</a></li>
-                  {% endif %}
+            <li><a href="{% url 'collections' %}"><i class="fa fa-light fa-shirt"></i>catagories</a></li>
+          {% if request.user.is_authenticated %}
+          <li><a href="{% url 'favouritepage' %}" ><i class="fa fa-thin fa-heart" style="color: #f00000;"></i>favourites</a></li>
+          <li><a href="{% url 'cart' %}" ><i class="fa fa-regular fa-cart-plus"></i>cart</a></li>
+            <li><a href=""><i class="fa fa-thin fa-user"></i>{{request.user}}</a></li>
+            <li><a href="LogoutPage"><i class="fa fa-thin fa-right-from-bracket"></i>logout</a></li>
+            {% else %}
+            <li><a href="{% url 'favouritepage' %}" onclick="myfunction()"><i class="fa fa-thin fa-heart" style="color: #f00000;"></i>favourites</a></li>
+            <li><a href="{% url 'cart' %}"  onclick="myFunction()"><i class="fa fa-regular fa-cart-plus"></i>cart</a></li>
+            <li><a href="{% url 'LoginPage' %}"><i class="fa fa-thin fa-right-to-bracket"></i>login</a></li>
+            {% endif %}
         </div>
       </header>
   <script>
@@ -56,6 +60,12 @@
           togglebtnicon.classList=isopen
           ? 'fa-solid fa-xmark'
           : 'fa-solid fa-bars'        
+      }
+      function myfunction(){
+        alert('please login to check favourite')
+      }
+      function myFunction(){
+        alert('Please, Login to check cart')
       }
   </script>
 </body>
